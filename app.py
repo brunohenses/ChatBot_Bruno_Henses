@@ -23,7 +23,7 @@ def obter_resposta(texto: str) -> str:
 
     respostas = {
          ('olá', 'ola', 'oi', 'boa tarde', 'bom dia', 'boas'): 'Olá tudo bem!',
-         'como estás': 'Estou bem, obrigado!',
+         'como estás?': 'Estou bem, obrigado!',
          'como te chamas?': 'O meu nome é: Bot :)',
          'tempo': 'Está um dia de sol!',
          ('bye', 'adeus', 'tchau', 'sair'): 'Gostei de falar contigo! Até breve...',
@@ -49,7 +49,7 @@ def chat() -> None:
     print(f'Bot: Olá, {name}! \nBot: Como te posso ajudar?')
 
     while True:
-        user_input: str = input('Tu: ')
+        user_input: str = input('Tu: ').lower().strip()
         resposta: str = obter_resposta(user_input)
         print(f'Bot: {resposta}\n')
 
