@@ -4,7 +4,7 @@ from datetime import datetime
 def obter_resposta(texto: str) -> str:
     comando: str = texto.lower()
 
-    if comando in ('olá', 'boa tarde', 'bom dia'):
+    """if comando in ('olá', 'boa tarde', 'bom dia'):
         return 'Olá tudo bem!'
     if comando == 'como estás':
         return 'Estou bem, obrigado!'
@@ -19,7 +19,7 @@ def obter_resposta(texto: str) -> str:
     if 'data' in comando:
         return f'Hoje é dia: {datetime.now():%d-%m-%Y}'
 
-    return f'Desculpa, não entendi a questão! {texto}'
+    return f'Desculpa, não entendi a questão! {texto}'"""
 
     # respostas = {
     #     ('olá', 'boa tarde', 'bom dia'): 'Olá tudo bem!',
