@@ -2,7 +2,7 @@ import os
 from datetime import datetime
 
 def obter_resposta(texto: str) -> str:
-    comando: str = texto.lower()
+    comando: str = texto.lower().strip()
 
     """if comando in ('olá', 'boa tarde', 'bom dia'):
         return 'Olá tudo bem!'
@@ -27,8 +27,6 @@ def obter_resposta(texto: str) -> str:
          'como te chamas?': 'O meu nome é: Bot :)',
          'tempo': 'Está um dia de sol!',
          ('bye', 'adeus', 'tchau', 'sair'): 'Gostei de falar contigo! Até breve...',
-         'horas': f'São: {datetime.now():%H:%M} horas',
-         'data': f'Hoje é dia: {datetime.now():%d-%m-%Y}',
          # Adicione pelo menos 10 novas interações abaixo
          'qual é o teu objetivo?': 'Dominar o mundo! Brincadeira... meu objetivo é conversar e ajudar no que puder',
          'quem te criou?': 'Fui criado pelo lendário Bruno Henses. Um gênio, modéstia à parte (dele, não minha)',
@@ -38,8 +36,8 @@ def obter_resposta(texto: str) -> str:
          'sabes cantar?': 'Cantar eu não canto, mas posso escrever letras melhores que muito hit por aí!',
          'qual é a tua cor favorita?': 'Azul. Igual aquela tela do Windows quando tudo dá errado',
          'gostas de filmes?': 'Filmes de terror são os meus favoritos! Nada como ver humanos correndo de problemas... literalmente.',
-         'que dia é hoje?': f'Hoje é {datetime.now():%d/%m/%Y}. Isso se o calendário do sistema estiver certo, né?',
-         'que horas são?': f'Agora são {datetime.now():%H:%M}. Mas não se preocupe, ainda dá tempo de procrastinar!',
+         ('hoje', 'data', 'dia', 'que dia é hoje?'): f'Hoje é {datetime.now():%d/%m/%Y}. Isso se o calendário do sistema estiver certo, né?',
+         ('horas', 'hora', 'que horas são?'): f'Agora são {datetime.now():%H:%M}. Mas não se preocupe, ainda dá tempo de procrastinar!',
          'onde vives?': 'Vivo na nuvem! Mas sem chuva, prometo.',
          'qual é a tua comida favorita?': 'Adoro bytes crocantes com molho binário',
          'conta uma piada': 'Me chamam de 007. 0 Documentção, 0 Comentários, 7 Bugs em produção.',
@@ -64,7 +62,7 @@ def chat() -> None:
     print(f'Bot: Olá, {name}! \nBot: Como te posso ajudar?')
 
     while True:
-        user_input: str = input('Tu: ').lower().strip()
+        user_input: str = input('Tu: ')
         resposta: str = obter_resposta(user_input)
         print(f'Bot: {resposta}\n')
 
