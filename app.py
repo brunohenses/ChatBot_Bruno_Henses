@@ -22,9 +22,13 @@ def obter_resposta(texto: str) -> str:
     return f'Desculpa, não entendi a questão! {texto}'"""
 
     respostas = {
-         ('olá', 'boa tarde', 'bom dia'): 'Olá tudo bem!',
+         ('olá', 'ola', 'oi', 'boa tarde', 'bom dia', 'boas'): 'Olá tudo bem!',
          'como estás': 'Estou bem, obrigado!',
-         ('bye', 'adeus', 'tchau'): 'Gostei de falar contigo! Até breve...',
+         'como te chamas?': 'O meu nome é: Bot :)',
+         'tempo': 'Está um dia de sol!',
+         ('bye', 'adeus', 'tchau', 'sair'): 'Gostei de falar contigo! Até breve...',
+         'horas': f'São: {datetime.now():%H:%M} horas',
+         'data': f'Hoje é dia: {datetime.now():%d-%m-%Y}',
      }
 
     for chave, resposta in respostas.items():
